@@ -145,8 +145,17 @@ class ModelLumina2(ModelTemplate):
         ("cap_embedder.1.weight", "context_refiner.0.attention.qkv.weight")
     ]
 
+# Qwen Image 2.1 support
+# Added following the upstream ComfyUI-GGUF commit f912d5e.
+class QwenImage21(ModelTemplate):
+    arch = "qwen_image21"
+    keys_detect = [
+        ("txt_in.text_norm.weight",)
+    ]
+
 arch_list = [ModelFlux, ModelSD3, ModelAura, ModelHiDream, CosmosPredict2, 
-             ModelLTXV, ModelHyVid, ModelWan, ModelSDXL, ModelSD1, ModelLumina2]
+             ModelLTXV, ModelHyVid, ModelWan, ModelSDXL, ModelSD1, ModelLumina2,
+             QwenImage21]
 
 def is_model_arch(model, state_dict):
     # check if model is correct
