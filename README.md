@@ -21,17 +21,48 @@ These changes address the architecture compatibility issue encountered when usin
 
 ## Installation
 
-1. Install the original ComfyUI-GGUF custom node following the upstream project's instructions.
-2. Install the required `gguf` Python package in the Python environment used by ComfyUI:
+### 1. Clone this repository
 
-   ```bash
-   python -m pip install -U gguf
-   ```
+Open a terminal and navigate to your ComfyUI `custom_nodes` directory:
 
-3. Ensure your ComfyUI-GGUF installation includes the changes described above.
-4. Restart ComfyUI and test your Qwen Image 2.1 workflow.
+```bash
+cd /path/to/ComfyUI/custom_nodes
+```
 
-**Note:** Run the installation command using the Python environment associated with your ComfyUI installation. Installing `gguf` into a different Python environment may not resolve the import error.
+Clone this repository:
+
+```bash
+git clone https://github.com/Matues320/ComfyUI-GGUF-Qwen-Image-2.1.git
+```
+
+This downloads the Qwen Image 2.1 compatibility version of ComfyUI-GGUF.
+
+### 2. Install the required dependency
+
+Install `gguf` using the Python environment associated with your ComfyUI installation:
+
+```bash
+python -m pip install -U gguf
+```
+
+**Important:** Make sure you use the Python environment that ComfyUI actually runs. Installing `gguf` into a different Python environment may not resolve the import error.
+
+### 3. Restart ComfyUI
+
+Restart ComfyUI and load your Qwen Image 2.1 GGUF model.
+
+This version includes the `qwen_image21` architecture compatibility fix.
+
+### 4. Verify the installation
+
+If you still encounter:
+
+```text
+ValueError: Unexpected architecture type in GGUF file: 'qwen_image21'
+```
+
+make sure you are loading the custom node from this repository, rather than another existing ComfyUI-GGUF installation.
+
 
 ## Changes
 
